@@ -39,10 +39,18 @@ const readArt = async (): Promise<string[]> => {
 	return content === "" ? [] : content.split("\n");
 };
 
-const themedInfo = (theme: Theme, cwd: string, model: string, skills: string): string[] => {
-	const line = (label: string, value: string) => `${theme.fg("accent", `${label}:`)} ${value}`;
-	return [line("pi", `v${VERSION}`), line("cwd", cwd), line("Model", model), line("Skills", skills)];
-};
+const themedInfo = (theme: Theme, cwd: string, model: string, skills: string): string[] => [
+	"",
+	theme.fg("accent", `pi v${VERSION}`),
+	"",
+	theme.fg("success", cwd),
+	"",
+	theme.fg("warning", "[Model]"),
+	theme.fg("dim", `  ${model}`),
+	"",
+	theme.fg("warning", "[Skills]"),
+	theme.fg("dim", `  ${skills}`),
+];
 
 export default function asciiHeader(pi: ExtensionAPI): void {
 	let artPromise: Promise<string[]> | undefined;
