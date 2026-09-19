@@ -1,8 +1,11 @@
 {
   "name": "pi-hamrabi",
   "version": "0.1.0",
+  "description": "ASCII art startup header for pi",
   "private": true,
   "type": "module",
+  "license": "MIT",
+  "repository": "github:umeneru/pi-hamrabi",
   "keywords": ["pi-package"],
   "scripts": {
     "test": "node --test test/*.test.ts"
